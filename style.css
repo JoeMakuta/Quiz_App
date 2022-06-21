@@ -1,0 +1,241 @@
+html,
+body {
+  background-image: linear-gradient(45deg, rgba(133, 246, 184, 1), rgba(142, 217, 235, 0.85));
+  font-family: 'Inter', sans-serif;
+  color: rgb(124, 124, 124);
+}
+
+
+.login {
+  display: block;
+  background-color: white;
+  margin: auto;
+  position: relative;
+  left: 0%;
+  right: 0%;
+  top: 40px;
+  width: 300px;
+  height: fit-content;
+  /* text-align: center; */
+  padding: 5%;
+
+}
+
+.questions {
+  display: none;
+  background-color: white;
+  position: relative;
+  left: 0%;
+  right: 0%;
+  top: 40px;
+  width: 300px;
+  height: fit-content;
+  padding: 5%;
+  margin: auto;
+}
+
+.resultContainer {
+  display: none;
+  background-color: white;
+  position: relative;
+  left: 0%;
+  right: 0%;
+  top: 40px;
+  width: 300px;
+  height: fit-content;
+  text-align: center;
+  padding: 5%;
+  margin: auto;
+}
+
+
+.material-symbols-sharp {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 48;
+  color: rgba(2, 138, 61, 1);
+  font-size: 200px;
+}
+
+
+
+.firstInput,
+.secondInput {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 35px 40px;
+  justify-content: center;
+  /* padding: 0px 20px 0px 20px; */
+  width: 100%;
+  width: 98%;
+  border-style: none;
+  border-color: rgb(126, 126, 126 0.5);
+  border-radius: 3px;
+  border-width: 0.5px;
+}
+
+.firstInput>p,
+.secondInput>p {
+  font-size: 13px;
+}
+
+.myText {
+  padding: 0px 20px 0px 20px;
+  text-align: center;
+}
+
+.assert {
+  margin: 15px;
+  padding: 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border: 1px solid rgba(221, 221, 221, 1)
+}
+
+.assert:active {
+  border: 2px solid rgba(2, 138, 61, 1)
+}
+
+.radioInput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  margin-bottom: auto;
+  background-color: rgba(2, 138, 61, 1);
+  color: white;
+  border: none;
+  width: 40%;
+  height: 40px;
+  transition: background-color 0.1s;
+}
+
+
+.buttonsQuestion {
+  display: flex;
+  justify-content: space-between;
+}
+
+#homePageB{
+  background: rgba(8, 128, 214, 1);
+}
+#homePageB:active{
+  background: rgb(77, 77, 77);
+}
+
+button:hover {
+  background-color: rgb(58, 190, 115);
+}
+
+button:active {
+  background-color: rgb(77, 77, 77);
+}
+
+.quitButton {
+  background-color: rgba(236, 136, 12, 1);
+}
+
+.quitButton:hover {
+  background-color: rgb(245, 68, 68);
+}
+.quitButton:active {
+  background-color: rgb(77, 77, 77);
+}
+  
+.nextButton {
+  background: rgba(2, 138, 61, 0.42);
+
+}
+
+.radioBtn {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 5%;
+  border-width: 1px;
+  border-color: rgb(185, 185, 185);
+  border-radius: 3px;
+  border-style: solid;
+}
+
+.quetionMunitor {
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  grid-template-rows: 1fr;
+}
+
+#timer {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(13, 102, 13);
+  border-style: none;
+  border-radius: 20px;
+}
+
+[type="radio"]:checked+span::before{
+  content: "";
+  background: green;
+}
+
+.timeContainer {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(209, 209, 209);
+  border-style: none;
+  border-radius: 20px;
+}
+
+
+@media screen and (min-width : 600px) {
+  .login {
+    display: block;
+    background-color: white;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 50px;
+    width: 300px;
+    margin: auto;
+    min-height: fit-content;
+    /* text-align: center; */
+    padding: 3%;
+  }
+
+  .questions {
+    display: none;
+    background-color: white;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 50px;
+    width: 300px;
+    min-height: fit-content;
+    /* text-align: center; */
+    padding: 3%;
+    margin: auto;
+  }
+
+  .resultContainer {
+    display: none;
+    background-color: white;
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: 50px;
+    width: 300px;
+    height: fit-content;
+    text-align: center;
+    padding: 3%;
+    margin: auto;
+  }
+}
