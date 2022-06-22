@@ -24,20 +24,25 @@
         C'est fun et c'est gratuit.
       </p>
     </div>
+    <form action="">
 
-    <div class="firstInput">
-      <p>Nom :</p>
-      <input type="text" name="" id="firstInput">
-      <span style="margin-top: 10px;"></span>
-    </div>
+      <div class="firstInput">
+        <p>Nom :</p>
+        <input type="text" name="" id="firstInput" pattern="[a-zA-Z]{4, 20}" required>
+        <span style="margin-top: 10px;"></span>
+      </div>
+  
+      <div class="secondInput">
+        <p>Email :</p>
+        <input type="email" name="" id="secondInput" required>
+        <span style="margin-top: 10px;"></span>
+      </div>
 
-    <div class="secondInput">
-      <p>Email :</p>
-      <input type="email" name="" id="secondInput">
-      <span style="margin-top: 10px;"></span>
-    </div>
+      <button type="submit" class="startButton">Commencer</button>
 
-    <button type="button" class="startButton">Commencer</button>
+    </form>
+   
+
 
   </main>
 
@@ -56,33 +61,16 @@
 
     <div class="radioInput">
 
+
+
       <div class="assert">
-        <label for="text">
-          <input type="radio" name="radioB" id="text">
+        <label for="myRadioInput">
+          <input type="radio" name="radioB" id="myRadioInput">
+          <div class="radioChecking"></div>
           <span>.Js</span>
         </label>
       </div>
 
-      <div class="assert">
-        <label for="text1">
-          <input style="color: green;" type="radio" name="radioB" id="text1">
-          <span>.Js</span>
-        </label>
-      </div>
-
-      <div class="assert">
-        <label for="text1">
-          <input type="radio" name="radioB" id="text1">
-          <span>.Js</span>
-        </label>
-      </div>
-
-      <div class="assert">
-        <label for="text">
-          <input type="radio" name="radioB" id="text">
-          <span>.Js</span>
-        </label>
-      </div>
 
     </div>
 
