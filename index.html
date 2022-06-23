@@ -28,20 +28,20 @@
 
       <div class="firstInput">
         <p>Nom :</p>
-        <input type="text" name="" id="firstInput" pattern="[a-zA-Z]{4, 20}" required>
+        <input type="text" name="" id="firstInput" pattern="^([a-z A-Z]{4,50})$" title="Your name must be longer than 4 caracters ..." required>
         <span style="margin-top: 10px;"></span>
       </div>
-  
+
       <div class="secondInput">
         <p>Email :</p>
         <input type="email" name="" id="secondInput" required>
         <span style="margin-top: 10px;"></span>
       </div>
 
-      <button type="submit" class="startButton">Commencer</button>
+      <button type="button" id="startButton">Commencer</button>
 
     </form>
-   
+
 
 
   </main>
@@ -63,13 +63,31 @@
 
 
 
-      <div class="assert">
-        <label for="myRadioInput">
-          <input type="radio" name="radioB" id="myRadioInput">
-          <div class="radioChecking"></div>
-          <span>.Js</span>
-        </label>
-      </div>
+
+      <label for="myRadioInput" class="assert">
+        <input type="radio" name="radioB" id="myRadioInput" class="myRadioInputClass">
+        <div class="radioChecking"></div>
+        <span>.Js</span>
+      </label>
+
+      <label for="myRadioInput1" class="assert">
+        <input type="radio" name="radioB" id="myRadioInput1" class="myRadioInputClass">
+        <div class="radioChecking"></div>
+        <span>.ts</span>
+      </label>
+
+      <label for="myRadioInput2" class="assert">
+        <input type="radio" name="radioB" id="myRadioInput2" class="myRadioInputClass">
+        <div class="radioChecking"></div>
+        <span>.Jsx</span>
+      </label>
+
+      <label for="myRadioInput3" class="assert">
+        <input type="radio" name="radioB" id="myRadioInput3" class="myRadioInputClass">
+        <div class="radioChecking"></div>
+        <span>.J</span>
+      </label>
+
 
 
     </div>
