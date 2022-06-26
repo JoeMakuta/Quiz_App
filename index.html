@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -24,11 +25,12 @@
         C'est fun et c'est gratuit.
       </p>
     </div>
-    <form action="">
+    <form action="" id="myForm" onsubmit="clickCommencer()">
 
       <div class="firstInput">
         <p>Nom :</p>
-        <input type="text" name="" id="firstInput" pattern="^([a-z A-Z]{4,50})$" title="Your name must be longer than 4 caracters ..." required>
+        <input type="text" name="" id="firstInput" 
+          title="Your name must be longer than 4 caracters ..." required>
         <span style="margin-top: 10px;"></span>
       </div>
 
@@ -38,7 +40,7 @@
         <span style="margin-top: 10px;"></span>
       </div>
 
-      <button type="button" id="startButton">Commencer</button>
+      <button type="submit" id="startButton">Commencer</button>
 
     </form>
 
@@ -48,9 +50,9 @@
 
   <main class="questions">
 
-    <p>Quel est le type d'un fichier javascript ?</p>
+    <p id="questionText">Quel est le type d'un fichier javascript ?</p>
     <div class="quetionMunitor">
-      <p style="font-size: 14px;">Question 1/15</p>
+      <p style="font-size: 14px;" id="questionNumber">Question 1/15</p>
       <p style="font-size: 14px;" id="coutDown">60</p>
     </div>
 
@@ -61,31 +63,28 @@
 
     <div class="radioInput">
 
-
-
-
       <label for="myRadioInput" class="assert">
         <input type="radio" name="radioB" id="myRadioInput" class="myRadioInputClass">
         <div class="radioChecking"></div>
-        <span>.Js</span>
+        <span id="answer1">.Js</span>
       </label>
 
       <label for="myRadioInput1" class="assert">
         <input type="radio" name="radioB" id="myRadioInput1" class="myRadioInputClass">
         <div class="radioChecking"></div>
-        <span>.ts</span>
+        <span id="answer2">.ts</span>
       </label>
 
       <label for="myRadioInput2" class="assert">
         <input type="radio" name="radioB" id="myRadioInput2" class="myRadioInputClass">
         <div class="radioChecking"></div>
-        <span>.Jsx</span>
+        <span id="answer3">.Jsx</span>
       </label>
 
       <label for="myRadioInput3" class="assert">
         <input type="radio" name="radioB" id="myRadioInput3" class="myRadioInputClass">
         <div class="radioChecking"></div>
-        <span>.J</span>
+        <span id="answer4">.J</span>
       </label>
 
 
