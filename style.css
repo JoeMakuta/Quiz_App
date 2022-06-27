@@ -50,6 +50,7 @@ body {
 
 
 .material-symbols-sharp {
+  /* display: none; */
   font-variation-settings:
     'FILL' 0,
     'wght' 300,
@@ -58,6 +59,18 @@ body {
   color: rgba(2, 138, 61, 1);
   font-size: 200px;
 }
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 48;
+  color: rgb(236, 25, 25);
+  font-size: 200px;
+}
+
 
 
 
@@ -76,7 +89,8 @@ body {
   border-width: 0.5px;
 }
 
-#secondInput, #firstInput{
+#secondInput,
+#firstInput {
   padding: 10px;
 }
 

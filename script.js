@@ -15,6 +15,9 @@ const nextButton = document.querySelector(".nextButton")
 const span2 = document.querySelector(".secondInput>span")
 const myForm = document.getElementById("myForm")
 const myRadioButtons = document.querySelectorAll(".myRadioInputClass")
+const userScore = document.getElementById("score")
+const failure = document.getElementById("failure")
+const success = document.getElementById("success")
 
 
 let coutDown = document.getElementById("coutDown")
@@ -144,7 +147,7 @@ const questionList = [
       answer2: 'call function sum()',
       answer3: 'call sum()',
       answer4: 'aucune bonne reponse',
-      rightAnswer: "myRadioInput1"
+      rightAnswer: "myRadioInput"
    },
    {
       question: "Quelle est la syntaxe correcte pour faire référence à un script externe appelé « myscript.js »?'",
@@ -158,7 +161,7 @@ const questionList = [
       question: "Quel est le bon endroit pour insérer un code JavaScript ?",
       answer1: 'La section <head>',
       answer2: 'Les deux sections <head> et <body> sont correctes',
-      answer3: ' La section <body>',
+      answer3: 'La section <body>',
       answer4: 'Aucune de ces réponses n’est vraie.',
       rightAnswer: "myRadioInput1"
    },
@@ -176,7 +179,7 @@ const questionList = [
       answer2: 'if a = 2',
       answer3: 'if a == 2 else',
       answer4: 'if (a == 2)',
-      rightAnswer: "myRadioInput2"
+      rightAnswer: "myRadioInput3"
    },
    {
       question: "Comment écrire une condition IF pour vérifier si « a » n’est PAS égal à 2?'",
@@ -216,7 +219,7 @@ const questionList = [
       answer2: 'head',
       answer3: 'body',
       answer4: 'footer',
-      rightAnswer: "myRadioInput2"
+      rightAnswer: "myRadioInput1"
    },
    {
       question: "Pourquoi on met le script en bas dans la balyse body?",
@@ -234,52 +237,66 @@ const questionList = [
       answer4: 'var',
       rightAnswer: "myRadioInput3"
    },
+   {
+      question: "Comment declarer une expression reguliere en Js ?",
+      answer1: 'let regex = /expression/',
+      answer2: 'let regex = expression',
+      answer3: 'let regex new = expression',
+      answer4: 'let regex = "expression"',
+      rightAnswer: "myRadioInput"
+   },
+   {
+      question: "",
+      answer1: '',
+      answer2: '',
+      answer3: '',
+      answer4: '',
+      rightAnswer: ""
+   }
 
 ]
 
-
-function loadQuiz() {
-   clickNextButton()
-}
-
-loadQuiz();
-
 // Ckeck if a radio is selected before you press next
 function checkRadioCheckedBeforeClick() {
-   let oneSelected;
-   clickNextButton();
    myAnswers.forEach(elt => {
       if (elt.checked) {
-         oneSelected = true;
-         // print("One is selected")
-      } else {
-         oneSelected = false;
+         userRightAnswer = elt.id;
+         clickNextButton();
+         print("The selected one is : " + userRightAnswer)
       }
    });
-   if (oneSelected) {
-      clickNextButton();
-   } else {
-      // alert("Select one element")
-   }
 }
 
 function clickNextButton() {
    //Initialize the timer 
-   clearInterval(counter, 1000)
    timerWidth = 100;
-   startTime = 59;
+   startTime = 60;
    // setInterval(counter, 1000)
-   //Take the right answer
-   myAnswers.forEach(answer => {
-      if (answer.checked) {
-         userRightAnswer = answer.id;
+
+   //print the question 0/15
+   questionNumber.textContent = `Question ${currentQuestion + 1}/15`;
+   print("The current question is : " + currentQuestion)
+
+
+   //Go to the score page if the number of question is 15
+   if (currentQuestion == 15) {
+      if (score < 8) {
+         success.style.display = 'none'
+      } else {
+         failure.style.display = 'none'
       }
-   });
+      userScore.textContent = `${score}/15`
+      login.style.display = "none"
+      questions.style.display = "none"
+      resultContainer.style.display = "block"
+   }
+
+
    //Deselect elements
    myAnswers.forEach(element => element.checked = false);
    //Changes of the question
    const currentQuestionData = questionList[currentQuestion]
-   print(currentQuestionData)
+   // print(currentQuestionData)
    questionText.textContent = currentQuestionData.question;
    answer1.textContent = currentQuestionData.answer1
    answer2.textContent = currentQuestionData.answer2
@@ -289,17 +306,19 @@ function clickNextButton() {
    // Add score if succeed
    if (userRightAnswer == currentQuestionData.rightAnswer) {
       score++;
-      print(score)
+      print("Succeed, Your score is : " + score)
+   } else {
+      print("Fail, Your score is : " + score)
    }
-   //print the question 0/15
-   questionNumber.textContent = `Question ${currentQuestion + 1}/15`;
    currentQuestion++;
+
 }
 
 
+
+clickNextButton();
+
 nextButton.addEventListener("click", checkRadioCheckedBeforeClick)
-
-
 
 nextButton.style.cursor = "not-allowed";
 nextButton.style.opacity = "0.4"
@@ -311,7 +330,7 @@ secondInput.addEventListener("input", secondInputListen);
 
 myForm.addEventListener('submit', (e) => {
    e.preventDefault();
-   print("Submitted")
+   print("Submited")
 
 });
 
@@ -320,7 +339,12 @@ homePageB.addEventListener("click", function () {
 });
 
 quitButton.addEventListener("click", function () {
-
+   if (score < 8) {
+      success.style.display = 'none'
+   } else {
+      failure.style.display = 'none'
+   }
+   userScore.textContent = `${score}/15`
    login.style.display = "none"
    questions.style.display = "none"
    resultContainer.style.display = "block"
