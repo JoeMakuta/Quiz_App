@@ -35,6 +35,8 @@ function counter() {
       timer.style.width = `${timerWidth}%`;
       startTime--;
       ;
+   }else{
+      clickNextButton();
    }
 }
 
@@ -77,7 +79,7 @@ function firstInputListen() {
    let regex = /^([a-z A-Z]{4,50})$/;
    if (!regex.test(firstInput.value)) {
       firstInput.style.color = "red";
-      span1.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ."
+      span1.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz."
       span1.style.color = "red"
       span1.style.fontSize = "10px"
       firstInput.style.border = " 1px solid rgba(255, 56, 56, 1)"
@@ -118,7 +120,7 @@ const answer4 = document.getElementById("answer4")
 const myAnswers = document.querySelectorAll(".myRadioInputClass")
 
 let score = 0;
-let currentQuestion = 0;
+let currentQuestion = -1;
 let userRightAnswer;
 
 //print the question 0/15
@@ -131,7 +133,7 @@ const questionList = [
       answer2: '.jsx',
       answer3: '.js',
       answer4: '.j',
-      rightAnswer: "myRadioInput2"
+      rightAnswer: 2
    },
    {
       question: "Dans quel balise HTML plaçons-nous le code JavaScript?",
@@ -139,7 +141,7 @@ const questionList = [
       answer2: 'La balise javascript',
       answer3: 'la balise script',
       answer4: 'la balise rel',
-      rightAnswer: "myRadioInput2"
+      rightAnswer: 2
    },
    {
       question: "Comment faire appelle à une fonction nommée « sum »?",
@@ -147,7 +149,7 @@ const questionList = [
       answer2: 'call function sum()',
       answer3: 'call sum()',
       answer4: 'aucune bonne reponse',
-      rightAnswer: "myRadioInput"
+      rightAnswer: 0
    },
    {
       question: "Quelle est la syntaxe correcte pour faire référence à un script externe appelé « myscript.js »?'",
@@ -155,7 +157,7 @@ const questionList = [
       answer2: '<script name="myscript.js">',
       answer3: '<script src="myscript.js">',
       answer4: 'Tout les réponses sont vrais',
-      rightAnswer: "myRadioInput2"
+      rightAnswer: 2
    },
    {
       question: "Quel est le bon endroit pour insérer un code JavaScript ?",
@@ -163,7 +165,7 @@ const questionList = [
       answer2: 'Les deux sections <head> et <body> sont correctes',
       answer3: 'La section <body>',
       answer4: 'Aucune de ces réponses n’est vraie.',
-      rightAnswer: "myRadioInput1"
+      rightAnswer: 1
    },
    {
       question: "Comment écrivez-vous « Hello World » dans une boîte d’alerte?",
@@ -171,7 +173,7 @@ const questionList = [
       answer2: 'alert("Hello World");',
       answer3: 'msgBox("Hello World");',
       answer4: 'alertBox("Hello World");',
-      rightAnswer: "myRadioInput1"
+      rightAnswer: 1
    },
    {
       question: "Comment écrire une condition IF en JavaScript?",
@@ -179,7 +181,7 @@ const questionList = [
       answer2: 'if a = 2',
       answer3: 'if a == 2 else',
       answer4: 'if (a == 2)',
-      rightAnswer: "myRadioInput3"
+      rightAnswer: 3
    },
    {
       question: "Comment écrire une condition IF pour vérifier si « a » n’est PAS égal à 2?'",
@@ -187,7 +189,7 @@ const questionList = [
       answer2: 'if (a != 2)',
       answer3: 'if a =! 2 then',
       answer4: 'if (a <> 2)',
-      rightAnswer: "myRadioInput1"
+      rightAnswer: 1
    },
    {
       question: "Comment créer une fonction en JavaScript?",
@@ -195,7 +197,7 @@ const questionList = [
       answer2: 'function = f()',
       answer3: 'function:f()',
       answer4: 'Aucune de ces réponses n’est vraie.',
-      rightAnswer: "myRadioInput"
+      rightAnswer: 0
    },
    {
       question: "Quelle est la syntaxe correcte pour vérifier la valeur de « c » ?",
@@ -203,7 +205,7 @@ const questionList = [
       answer2: 'if (c = "XYZ") then { } else { }',
       answer3: 'if (c == "XYZ") { } else { }',
       answer4: 'if (c = "XYZ") { } else { }',
-      rightAnswer: "myRadioInput2"
+      rightAnswer: 2
    },
    {
       question: "Quelle est la syntaxe pour cree une constante en javascript ?",
@@ -211,7 +213,7 @@ const questionList = [
       answer2: 'constante',
       answer3: 'constan',
       answer4: 'const',
-      rightAnswer: "myRadioInput3"
+      rightAnswer: 3
    },
    {
       question: "Dans quelle balise Html est conseillé de placer le chemin du script?",
@@ -219,7 +221,7 @@ const questionList = [
       answer2: 'head',
       answer3: 'body',
       answer4: 'footer',
-      rightAnswer: "myRadioInput1"
+      rightAnswer: 1
    },
    {
       question: "Pourquoi on met le script en bas dans la balyse body?",
@@ -227,7 +229,7 @@ const questionList = [
       answer2: 'pour le design',
       answer3: 'pour le style',
       answer4: 'pour la forme',
-      rightAnswer: "myRadioInput"
+      rightAnswer: 0
    },
    {
       question: "N'est pas une methode d'objet en js'?",
@@ -235,7 +237,7 @@ const questionList = [
       answer2: 'exec()',
       answer3: 'test()',
       answer4: 'var',
-      rightAnswer: "myRadioInput3"
+      rightAnswer: 3
    },
    {
       question: "Comment declarer une expression reguliere en Js ?",
@@ -243,7 +245,7 @@ const questionList = [
       answer2: 'let regex = expression',
       answer3: 'let regex new = expression',
       answer4: 'let regex = "expression"',
-      rightAnswer: "myRadioInput"
+      rightAnswer: 0
    },
    {
       question: "",
@@ -258,16 +260,18 @@ const questionList = [
 
 // Ckeck if a radio is selected before you press next
 function checkRadioCheckedBeforeClick() {
-   myAnswers.forEach(elt => {
-      if (elt.checked) {
-         userRightAnswer = elt.id;
-         clickNextButton();
+   for (let i = 0; i < 4; i++) {
+      if (myAnswers[i].checked) {
+         userRightAnswer = i;
          print("The selected one is : " + userRightAnswer)
+         clickNextButton();
       }
-   });
+   }
 }
 
 function clickNextButton() {
+
+   currentQuestion++;
    //Initialize the timer 
    timerWidth = 100;
    startTime = 60;
@@ -290,10 +294,15 @@ function clickNextButton() {
       questions.style.display = "none"
       resultContainer.style.display = "block"
    }
-
-
    //Deselect elements
    myAnswers.forEach(element => element.checked = false);
+
+   // Add score if succeed
+   console.log(userRightAnswer, questionList[currentQuestion - 1])
+   if (questionList[currentQuestion - 1] && userRightAnswer == questionList[currentQuestion - 1].rightAnswer) {
+      score++;
+      print("Succeed, Your score is : " + score)
+   }
    //Changes of the question
    const currentQuestionData = questionList[currentQuestion]
    // print(currentQuestionData)
@@ -302,25 +311,21 @@ function clickNextButton() {
    answer2.textContent = currentQuestionData.answer2
    answer3.textContent = currentQuestionData.answer3
    answer4.textContent = currentQuestionData.answer4
+   print("The right answer is  " + currentQuestionData.rightAnswer)
 
-   // Add score if succeed
-   if (userRightAnswer == currentQuestionData.rightAnswer) {
-      score++;
-      print("Succeed, Your score is : " + score)
-   } else {
-      print("Fail, Your score is : " + score)
-   }
-   currentQuestion++;
+   // else {
+   //    print("Fail, Your score is : " + score)
+   // }
 
 }
 
+myForm.addEventListener
 
 
 clickNextButton();
 
 nextButton.addEventListener("click", checkRadioCheckedBeforeClick)
 
-nextButton.style.cursor = "not-allowed";
 nextButton.style.opacity = "0.4"
 
 firstInput.addEventListener("input", firstInputListen);
@@ -348,5 +353,4 @@ quitButton.addEventListener("click", function () {
    login.style.display = "none"
    questions.style.display = "none"
    resultContainer.style.display = "block"
-
 });
