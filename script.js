@@ -35,28 +35,10 @@ function counter() {
       timer.style.width = `${timerWidth}%`;
       startTime--;
       ;
-   }else{
+   } else {
       clickNextButton();
    }
 }
-
-//CHECK RADIO BUTTONS
-
-
-// function radionButtonChecked() {
-//    for (let i = 0; i < myRadioButtons.length; i++) {
-//       if (myRadioButtons[i].checked) {
-//          print(myRadioButtons[i])
-//       }
-//    }
-// }
-// for (let i = 0; i < myRadioButtons.length; i++) {
-//    myRadioButtons[i].addEventListener("input", radionButtonChecked)
-//    // print(myRadioButtons[i])  
-// }
-// // radionButtonChecked()
-
-
 
 //START BUTTON CLICK
 
@@ -296,6 +278,7 @@ function clickNextButton() {
    }
    //Deselect elements
    myAnswers.forEach(element => element.checked = false);
+   nextButton.style.opacity = "0.4"
 
    // Add score if succeed
    console.log(userRightAnswer, questionList[currentQuestion - 1])
@@ -327,6 +310,16 @@ clickNextButton();
 nextButton.addEventListener("click", checkRadioCheckedBeforeClick)
 
 nextButton.style.opacity = "0.4"
+
+// Enable the next button when select the radio
+for (let i = 0; i < myRadioButtons.length; i++) {
+   myRadioButtons[i].addEventListener("input", function () {
+      print(myRadioButtons[i])
+      nextButton.style.opacity = "1"
+   })
+}
+
+//
 
 firstInput.addEventListener("input", firstInputListen);
 
