@@ -5,7 +5,6 @@ body {
   color: rgb(124, 124, 124);
 }
 
-
 .login {
   display: block;
   background-color: white;
@@ -16,9 +15,7 @@ body {
   top: 40px;
   width: 300px;
   height: fit-content;
-  /* text-align: center; */
   padding: 5%;
-
 }
 
 .questions {
@@ -48,31 +45,29 @@ body {
   margin: auto;
 }
 
+.errorMsg{
+  margin-top: 10px;
+}
+
+.quetionMunitor > p{
+  font-size: 14px;
+}
+
+.resultContainer > p:first-child{
+  font-size: 30px;
+}
 
 .material-symbols-sharp {
-  /* display: none; */
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 300,
-    'GRAD' 0,
-    'opsz' 48;
-  color: rgba(2, 138, 61, 1);
-  font-size: 200px;
+  display: block;
+  width: 200px;
+  margin: auto;
 }
-
 
 .material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 300,
-    'GRAD' 0,
-    'opsz' 48;
-  color: rgb(236, 25, 25);
-  font-size: 200px;
+  display: block;
+  width: 200px;
+  margin: auto;
 }
-
-
-
 
 .firstInput,
 .secondInput {
@@ -80,8 +75,6 @@ body {
   grid-template-columns: 100%;
   grid-template-rows: 35px 40px;
   justify-content: center;
-  /* padding: 0px 20px 0px 20px; */
-  width: 100%;
   width: 98%;
   border-style: none;
   border-color: rgb(126, 126, 126 0.5);
@@ -104,9 +97,6 @@ body {
   text-align: center;
 }
 
-
-
-
 button {
   display: block;
   margin-left: auto;
@@ -121,7 +111,6 @@ button {
   cursor: pointer;
   transition: background-color 0.1s;
 }
-
 
 .buttonsQuestion {
   display: flex;
@@ -158,14 +147,10 @@ button:active {
 
 .nextButton {
   background: rgb(0, 144, 62);
-
 }
 
 /* Radio Inputs */
 
-.assertions{
-  margin-right: 10px;
-}
 .myRadioInputClass {
   display: none;
 }
@@ -178,7 +163,6 @@ button:active {
   border: 1px solid rgb(108, 108, 108);
   box-sizing: border-box;
   margin-right: 20px;
-
 }
 
 .radioChecking::after {
@@ -193,8 +177,6 @@ button:active {
 
 .myRadioInputClass:checked+.radioChecking::after {
   transform: scale(1);
-  /* display: block; */
-
 }
 
 .assert {
@@ -203,7 +185,6 @@ button:active {
   padding: 10px;
   border-style: solid;
   border-width: 1px;
-  /* border-radius: 5px; */
   border: 1px solid rgb(204, 204, 204)
 }
 
@@ -211,7 +192,7 @@ button:active {
   border: 1px solid rgba(2, 138, 61, 1)
 }
 
-/* Timer  */
+/* TIMER  */
 
 .quetionMunitor {
   display: grid;
@@ -225,9 +206,7 @@ button:active {
   background-color: rgb(13, 102, 13);
   border-style: none;
   border-radius: 20px;
-  /* transition: all 1s; */
 }
-
 
 .timeContainer {
   width: 100%;
@@ -236,7 +215,6 @@ button:active {
   border-style: none;
   border-radius: 20px;
 }
-
 
 @media screen and (min-width : 600px) {
   .login {
@@ -249,7 +227,6 @@ button:active {
     width: 300px;
     margin: auto;
     min-height: fit-content;
-    /* text-align: center; */
     padding: 3%;
   }
 
@@ -262,7 +239,6 @@ button:active {
     top: 50px;
     width: 300px;
     min-height: fit-content;
-    /* text-align: center; */
     padding: 3%;
     margin: auto;
   }
